@@ -1,7 +1,6 @@
 -- Author: Rikj000
 
 local config = require("./config")
-local hooked = false
 
 -- Initialize debug logging helper functions
 local logHeader = "[NoStuckPals] "
@@ -21,16 +20,11 @@ local function ScalePal(character, scale)
 end
 
 -- Register early hook - Scales to custom pal + hit-box size
-RegisterHook("/Script/Engine.PlayerController:ClientRestart", function()
-    if (not hooked) then
-        NotifyOnNewObject("/Script/Pal.PalCharacter", function(character)
-            if (ShouldScalePal(character) == true) then
-                ScalePal(character, config.ScaleSize)
-                LogDebug("Early hook - Scaled pal (and hit-box) to size " .. tostring(config.ScaleSize) .. '!')
-            end
-        end)
+NotifyOnNewObject("/Script/Pal.PalCharacter", function(character)
+    if (ShouldScalePal(character) == true) then
+        ScalePal(character, config.ScaleSize)
+        LogDebug("Early hook - Scaled pal (and hit-box) to size " .. tostring(config.ScaleSize) .. '!')
     end
-    hooked = true
 end)
 
 -- Register late hook - Restores pal scale, keeps modified hit-box size, if enabled
