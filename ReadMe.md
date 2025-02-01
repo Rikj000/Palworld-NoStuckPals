@@ -35,3 +35,13 @@ or directly edit `Palworld\Pal\Binaries\Win64\Mods\NoStuckPals\NoStuckPals.modco
 I grew tired of pals getting stuck in my base,      
 unable to complete their tasks due to pathing issues.   
 So I've decided to write this simple mod!
+
+## Logic Description
+This mod scales down pals early, before full initialization of the Unreal Engine Character object,     
+which also appears to alter their collision box.
+
+After a delay of 1ms (not notice-able to humans), it scales the Character object back to it's original size,   
+but not their collision box (that's not possible anymore at that point), so that remains smaller.
+
+Which successfully resolved pals getting stuck in my base (with a 2 high roof),   
+without undesired side effects on pals in the wild (been testing the mod a week or so before releasing).
