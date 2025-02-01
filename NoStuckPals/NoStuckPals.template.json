@@ -1,7 +1,7 @@
 {
     "meta": {
         "desc": "NoStuckPals - Attempts to resolve pals getting stuck in the base by re-scaling their invisible collision box",
-        "vers": "0.0.4",
+        "vers": "1.0.0",
         "auth": "Rikj000",
         "link": { "donate": "https://www.paypal.com/paypalme/Rikj000" },
         "game": false
