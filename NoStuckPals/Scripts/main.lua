@@ -2,7 +2,7 @@
 
 local config = require("./config")
 
--- Initialize debug logging helper functions
+-- Define debug logging helper function
 local logHeader = "[NoStuckPals] "
 local function LogDebug(message)
     if (config.LogDebugInfo == true) then
@@ -10,28 +10,22 @@ local function LogDebug(message)
     end
 end
 
--- Define scale helper functions
-local function ShouldScalePal(character)
-    return character.StaticCharacterParameterComponent.IsPal == true
-end
-
+-- Define scale helper function
 local function ScalePal(character, scale)
     character:SetActorScale3D({ X = scale, Y = scale, Z = scale })
 end
 
--- Register early hook - Scales to custom pal + hit-box size
-NotifyOnNewObject("/Script/Pal.PalCharacter", function(character)
-    if (ShouldScalePal(character) == true) then
-        ScalePal(character, config.ScaleSize)
-        LogDebug("Early hook - Scaled pal (and hit-box) to size " .. tostring(config.ScaleSize) .. '!')
+-- Register early hook
+NotifyOnNewObject("/Script/Pal.PalCharacter", function(Character)
+    if (Character.StaticCharacterParameterComponent.IsPal == false or config.ScaleSize > 1) then
+        return
     end
-end)
 
--- Register late hook - Restores pal scale, keeps modified hit-box size, if enabled
-RegisterHook("/Script/Pal.PalCharacterParameterComponent:OnInitializedCharacter", function(Context, OwnerCharacter)
-    local character = OwnerCharacter:get()
-    if (config.ScaleHitBoxOnly == true and ShouldScalePal(character) == true) then
-        ScalePal(character, 1)
-        LogDebug("Late hook - Scaled pal (not hit-box) to size 1!")
-    end
+    ScalePal(Character, config.ScaleSize)
+    LogDebug("Early hook - Scaled pal (and collision capsule) to smaller size " .. tostring(config.ScaleSize) .. '!')
+
+    ExecuteWithDelay(1, function()
+        ScalePal(Character, 1)
+        LogDebug('Delayed hook - Scaled pal (not collision capsule) back to original size 1!')
+    end)
 end)
