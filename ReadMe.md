@@ -1,7 +1,7 @@
 # Palworld - No Stuck Pals
 
 <p align="left">
-    <a href="https://www.nexusmods.com/palworld/mods/TODO">
+    <a href="https://www.nexusmods.com/palworld/mods/2161">
         <img src="https://img.shields.io/badge/NexusMods_Page-NoStuckPals-orange" alt="Nexus Mods - NoStuckPals">
     </a> <a href="https://github.com/Rikj000/Palworld-NoStuckPals/blob/development/LICENSE">
         <img src="https://img.shields.io/github/license/Rikj000/Palworld-NoStuckPals?label=License&logo=gnu" alt="GNU General Public License">
