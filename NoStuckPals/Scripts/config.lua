@@ -1,17 +1,35 @@
 local config = {}
-config["ChangePartyPals"] = true
-config["ChangeBasePals"] = true
-config["ChangeWildPals"] = false
+-- --------------- SETTINGS - Start -------------- --
 
-config["LogDebugInfo"] = true
+-- HitBox only
+config.OnlyScaleHitBox = true
 
+-- XL pals
+config.AffectsXL = true
+config.ScaleXL = 0.4
 
--- Pal IDs: https://pwmodding.wiki/docs/game-data/monster-table
+-- L pals
+config.AffectsL = true
+config.ScaleL = 0.5
 
--- --------------- Make your changes here -------------- --
---config["ChickenPal"] = 0.25
-config["WhiteMoth"] = 0.9
-config["CandleGhost"] = 0.2
+-- M pals
+config.AffectsM = true
+config.ScaleM = 0.6
 
--- ----------Dont touch anything below this line ------- --
+-- S pals
+config.AffectsS = true
+config.ScaleS = 0.7
+
+-- XS pals
+config.AffectsXS = false
+config.ScaleXS = 0.8
+
+-- Rare pals
+config.AffectsRare = true
+config.ScaleRare = 0.5
+
+-- Debugging
+config.LogDebugInfo = true
+
+-- --------------- SETTINGS - End ---------------- --
 return config
