@@ -16,7 +16,7 @@
     </a>
 </p>
 
-A simple [Palworld](https://www.pocketpair.jp/palworld) mod to prevent pals getting stuck in the base. Written in [Lua](https://www.lua.org/) using [UE4SS](https://github.com/UE4SS-RE/RE-UE4SS).
+A simple single player [Palworld](https://www.pocketpair.jp/palworld) mod to prevent pals getting stuck in the base. Written in [Lua](https://www.lua.org/) using [UE4SS](https://github.com/UE4SS-RE/RE-UE4SS).
 
 ## Requirements
 - [UE4SS](https://github.com/UE4SS-RE/RE-UE4SS)
