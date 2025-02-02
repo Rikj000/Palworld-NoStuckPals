@@ -58,8 +58,9 @@ NotifyOnNewObject('/Script/Pal.PalCharacter', function(Character)
     LogDebug('Early hook - Scaled pal (and collision box) to smaller size '
             .. tostring(config.ScaleSize.live) .. '!')
 
-    ExecuteWithDelay(1, function()
+    ExecuteWithDelay(config.RestoreDelay.live, function()
         ScalePal(Character, 1)
-        LogDebug('Delayed hook - Scaled pal (not collision box) back to original size 1!')
+        LogDebug('Delayed hook - Scaled pal (not collision box) back to original size 1 after a delay of '
+                .. tostring(config.RestoreDelay.live) .. 'ms!')
     end)
 end)
