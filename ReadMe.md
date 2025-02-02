@@ -26,12 +26,9 @@ A simple [Palworld](https://www.pocketpair.jp/palworld) mod to prevent pals gett
 1. Extract the release `.zip` file into the `Palworld\Pal\Binaries\Win64\Mods` directory
 2. Launch the game (generates `Palworld\Pal\Binaries\Win64\Mods\NoStuckPals\NoStuckPals.modconfig.json`)
 
-### Installation Server Notes
-This mod was developed on/for single player,   
-but it seems to work on servers as well.
-
-**However, it needs to be installed on both client + server!**   
-Otherwise, it will result into pals being rendered tiny on the client side.
+**Servers are not supported!**   
+This mod was developed on/for single player.   
+Installing this mod on servers will lead to issues!
 
 ## Configuration
 Either use [ModConfigMenu](https://www.nexusmods.com/palworld/mods/577) in the game's menu   
